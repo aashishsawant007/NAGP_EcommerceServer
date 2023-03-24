@@ -24,24 +24,24 @@ namespace API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddAutoMapper(typeof(MappingProfiles));
+            //services.AddAutoMapper(typeof(MappingProfiles));
             services.AddControllers();
-            services.AddDbContext<EcommerceContext>(x => x.UseSqlite(_config.GetConnectionString("DefaultConnection")));
-            services.AddDbContext<AppIdentityDbContext>(x => x.UseSqlite(_config.GetConnectionString("IdentityConnection")));
-            services.AddSingleton<IConnectionMultiplexer>(c => {
-                var config = ConfigurationOptions.Parse(_config.GetConnectionString("Redis"), true);
-                return ConnectionMultiplexer.Connect(config);
-            });
-            services.AddAppServices();
-            services.AddIdentityServices(_config);
+            //services.AddDbContext<EcommerceContext>(x => x.UseSqlite(_config.GetConnectionString("DefaultConnection")));
+            //services.AddDbContext<AppIdentityDbContext>(x => x.UseSqlite(_config.GetConnectionString("IdentityConnection")));
+            //services.AddSingleton<IConnectionMultiplexer>(c => {
+            //    var config = ConfigurationOptions.Parse(_config.GetConnectionString("Redis"), true);
+            //    return ConnectionMultiplexer.Connect(config);
+            //});
+            //services.AddAppServices();
+            //services.AddIdentityServices(_config);
             services.AddSwaggerDoc();
-            services.AddCors(options =>
-            {
-                options.AddPolicy("CorsPolicy", policy =>
-                {
-                   policy.AllowAnyHeader().AllowAnyMethod().WithOrigins("https://localhost:4200");
-                });
-            });
+            //services.AddCors(options =>
+            //{
+            //    options.AddPolicy("CorsPolicy", policy =>
+            //    {
+            //       policy.AllowAnyHeader().AllowAnyMethod().WithOrigins("https://localhost:4200");
+            //    });
+            //});
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -49,7 +49,7 @@ namespace API
         {
             app.UseMiddleware<ExceptionMiddleware>();
 
-            app.UseStatusCodePagesWithReExecute("/errors/{0}");
+            //app.UseStatusCodePagesWithReExecute("/errors/{0}");
 
             app.UseHttpsRedirection();
 
@@ -57,11 +57,11 @@ namespace API
 
             app.UseStaticFiles();
 
-            app.UseCors("CorsPolicy");
+            //app.UseCors("CorsPolicy");
             
-            app.UseAuthentication();
+            //app.UseAuthentication();
 
-            app.UseAuthorization();
+            //app.UseAuthorization();
 
             app.UseSwaggerDoc();
 
