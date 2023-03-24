@@ -1,0 +1,1 @@
+web: dotnet exec ./API.dll --urls http://0.0.0.0:5000/
