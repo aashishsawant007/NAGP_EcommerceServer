@@ -17,34 +17,45 @@ variables:
 steps:
 - task: DotNetCoreCLI@2
   inputs:
-    command: test
-    projects: '**/*Test/*.csproj'
-    arguments: '--configuration $(buildConfiguration)'
-- script: dotnet build --configuration $(buildConfiguration)
-  displayName: dotnet build $(buildConfiguration)    
-- task: NuGetToolInstaller@1
+    command: 'restore'
+    feedsToUse: 'select'
+    vstsFeed: 'my-vsts-feed' # A series of numbers and letters
 
-- task: NuGetCommand@2
+- task: DotNetCoreCLI@2
   inputs:
-    restoreSolution: '$(solution)'
+    command: 'build'
+    arguments: '--configuration $(buildConfiguration)'
+  displayName: 'dotnet build $(buildConfiguration)'
+
+- task: DotNetCoreCLI@2
+  displayName: Build
+  inputs:
+    command: build
+    projects: '**/*.csproj'
+    arguments: '--configuration $(buildConfiguration)' # Update this to match your need
+
+- task: DotNetCoreCLI@2
+  inputs:
+    command: test
+    projects: '**/*Tests/*.csproj'
+    arguments: '--configuration $(buildConfiguration)'
+
 - task: DotNetCoreCLI@2
   inputs:
     command: publish
-    publishWebProjects: False
+    publishWebProjects: True
     arguments: '--configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)'
     zipAfterPublish: True
-- task: VSBuild@1
-  inputs:
-    solution: '$(solution)'
-    msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:DesktopBuildPackageLocation="$(build.artifactStagingDirectory)\WebApp.zip" /p:DeployIisAppPath="Default Web Site"'
-    platform: '$(buildPlatform)'
-    configuration: '$(buildConfiguration)'
 
-- task: VSTest@2
+# this code takes all the files in $(Build.ArtifactStagingDirectory) and uploads them as an artifact of your build.
+- task: PublishPipelineArtifact@1
   inputs:
-    testSelector: 'testAssemblies'
-    testAssemblyVer2: |
-      **\*UnitTest*.dll
-      !**\*TestAdapter.dll
-      !**\obj\**
-    searchFolder: '$(System.DefaultWorkingDirectory)'
+    targetPath: '$(Build.ArtifactStagingDirectory)' 
+    artifactName: 'NAGP_EcommerceServer'
+
+- task: DotNetCoreCLI@2
+  inputs:
+    command: publish
+    publishWebProjects: True
+    arguments: '--configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)'
+    zipAfterPublish: True
