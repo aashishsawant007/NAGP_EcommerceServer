@@ -24,8 +24,9 @@ phases:
     commands:
       - echo Publish started on `date`
       # https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/dotnet-linux-platform-bundle-app.html
-      - dotnet publish -c Release -r linux-x64 -o ./ API/API.csproj
+      - dotnet publish -c Release -o ./build_output API/API.csproj
       
 artifacts:
   files:
     - ./**/*
+  base-directory: './build_output'
