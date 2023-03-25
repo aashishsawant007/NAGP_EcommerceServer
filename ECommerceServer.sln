@@ -9,8 +9,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core", "Core\Core.csproj", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{0099D296-7D06-4C00-8B3C-1B8780B65702}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "APIXUnitTest", "APIXUnitTest\APIXUnitTest.csproj", "{89A03512-8332-4080-B368-7442DAA5E66D}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,18 +55,6 @@ Global
 		{0099D296-7D06-4C00-8B3C-1B8780B65702}.Release|x64.Build.0 = Release|Any CPU
 		{0099D296-7D06-4C00-8B3C-1B8780B65702}.Release|x86.ActiveCfg = Release|Any CPU
 		{0099D296-7D06-4C00-8B3C-1B8780B65702}.Release|x86.Build.0 = Release|Any CPU
-		{89A03512-8332-4080-B368-7442DAA5E66D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{89A03512-8332-4080-B368-7442DAA5E66D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{89A03512-8332-4080-B368-7442DAA5E66D}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{89A03512-8332-4080-B368-7442DAA5E66D}.Debug|x64.Build.0 = Debug|Any CPU
-		{89A03512-8332-4080-B368-7442DAA5E66D}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{89A03512-8332-4080-B368-7442DAA5E66D}.Debug|x86.Build.0 = Debug|Any CPU
-		{89A03512-8332-4080-B368-7442DAA5E66D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{89A03512-8332-4080-B368-7442DAA5E66D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{89A03512-8332-4080-B368-7442DAA5E66D}.Release|x64.ActiveCfg = Release|Any CPU
-		{89A03512-8332-4080-B368-7442DAA5E66D}.Release|x64.Build.0 = Release|Any CPU
-		{89A03512-8332-4080-B368-7442DAA5E66D}.Release|x86.ActiveCfg = Release|Any CPU
-		{89A03512-8332-4080-B368-7442DAA5E66D}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

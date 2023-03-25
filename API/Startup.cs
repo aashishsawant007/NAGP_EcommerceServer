@@ -26,9 +26,8 @@ namespace API
         {
             services.AddAutoMapper(typeof(MappingProfiles));
             services.AddControllers();
-            //services.AddDbContext<EcommerceContext>(x => x.UseSqlServer(_config.GetConnectionString("DefaultConnection")));
-            services.AddDbContext<EcommerceContext>(x => x.UseSqlite(_config.GetConnectionString("DefaultConnection")));
-            services.AddDbContext<AppIdentityDbContext>(x => x.UseSqlite(_config.GetConnectionString("IdentityConnection")));
+            services.AddDbContext<EcommerceContext>(x => x.UseSqlServer(_config.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<AppIdentityDbContext>(x => x.UseSqlServer(_config.GetConnectionString("IdentityConnection")));
             services.AddSingleton<IConnectionMultiplexer>(c =>
             {
                 var config = ConfigurationOptions.Parse(_config.GetConnectionString("Redis"), true);
