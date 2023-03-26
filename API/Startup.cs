@@ -26,8 +26,8 @@ namespace API
         {
             services.AddAutoMapper(typeof(MappingProfiles));
             services.AddControllers();
-            services.AddDbContext<EcommerceContext>(x => x.UseSqlServer(_config.GetConnectionString("DefaultConnection")));
-            services.AddDbContext<AppIdentityDbContext>(x => x.UseSqlServer(_config.GetConnectionString("IdentityConnection")));
+            services.AddDbContext<EcommerceContext>(x => x.UseSqlServer("Server=IN-PG029QBM; Database=ecommerce; User ID=CPSTest;Password=Testing01; TrustServerCertificate=true"));
+            services.AddDbContext<AppIdentityDbContext>(x => x.UseSqlServer("Server=IN-PG029QBM; Database=identity; User ID=CPSTest;Password=Testing01; TrustServerCertificate=true"));
             services.AddSingleton<IConnectionMultiplexer>(c =>
             {
                 var config = ConfigurationOptions.Parse(_config.GetConnectionString("Redis"), true);
