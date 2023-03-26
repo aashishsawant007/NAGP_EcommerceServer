@@ -20,7 +20,7 @@ namespace API
             using(var scope = host.Services.CreateScope())
             {
                 var services = scope.ServiceProvider;
-                //var loggerFactory = services.GetRequiredService<ILoggerFactory>();
+                var loggerFactory = services.GetRequiredService<ILoggerFactory>();
 
                 try
                 {
@@ -35,8 +35,8 @@ namespace API
                 }
                 catch (Exception ex)
                 {
-                    //var logger = loggerFactory.CreateLogger<Program>();
-                    //logger.LogError($"An error occurred during migration: {ex.Message}");
+                    var logger = loggerFactory.CreateLogger<Program>();
+                    logger.LogError($"An error occurred during migration: {ex.Message}");
                 }
             }
             host.Run();

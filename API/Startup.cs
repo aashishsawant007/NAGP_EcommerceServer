@@ -28,11 +28,11 @@ namespace API
             services.AddControllers();
             services.AddDbContext<EcommerceContext>(x => x.UseSqlServer(_config.GetConnectionString("DefaultConnection")));
             services.AddDbContext<AppIdentityDbContext>(x => x.UseSqlServer(_config.GetConnectionString("IdentityConnection")));
-            //services.AddSingleton<IConnectionMultiplexer>(c =>
-            //{
-            //    var config = ConfigurationOptions.Parse(_config.GetConnectionString("Redis"), true);
-            //    return ConnectionMultiplexer.Connect(config);
-            //});
+            services.AddSingleton<IConnectionMultiplexer>(c =>
+            {
+                var config = ConfigurationOptions.Parse(_config.GetConnectionString("Redis"), true);
+                return ConnectionMultiplexer.Connect(config);
+            });
             services.AddAppServices();
             //services.AddIdentityServices(_config);
             services.AddSwaggerDoc();
