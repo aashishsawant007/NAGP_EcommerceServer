@@ -1,5 +1,10 @@
+
+using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace Core.Entities.OrderAggregate
 {
+    [NotMapped]
     public class ProductItemOrdered
     {
         public ProductItemOrdered()
