@@ -24,12 +24,12 @@ namespace API
 
                 try 
                 {
-                    var context = services.GetRequiredService<EcommerceContext>();
+                    //var context = services.GetRequiredService<EcommerceContext>();
                     //await context.Database.MigrateAsync();
                     //await EcommerceContextSeed.SeedAsync(context, loggerFactory);
 
-                    var userManager = services.GetRequiredService<UserManager<AppUser>>();
-                    var identityContext = services.GetRequiredService<AppIdentityDbContext>();
+                    //var userManager = services.GetRequiredService<UserManager<AppUser>>();
+                    //var identityContext = services.GetRequiredService<AppIdentityDbContext>();
                     //await identityContext.Database.MigrateAsync();
                     //await AppIdentityDbContextSeed.SeedUserAsync(userManager);
                 }
