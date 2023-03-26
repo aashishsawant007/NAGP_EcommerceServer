@@ -33,8 +33,8 @@ namespace API
             //    var config = ConfigurationOptions.Parse(_config.GetConnectionString("Redis"), true);
             //    return ConnectionMultiplexer.Connect(config);
             //});
-            //services.AddAppServices();
-            //services.AddIdentityServices(_config);
+            services.AddAppServices();
+            services.AddIdentityServices(_config);
             services.AddSwaggerDoc();
             services.AddCors(options =>
             {
