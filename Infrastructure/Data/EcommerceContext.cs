@@ -23,25 +23,6 @@ namespace Infrastructure.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
-
-            //Workaround for sqlite as it doesn't support decimal, datetimeoffset.
-            //if(Database.ProviderName == "Microsoft.EntityFrameworkCore.SqlServer")
-            //{
-            //    foreach(var item in modelBuilder.Model.GetEntityTypes())
-            //    {
-            //        var props = item.ClrType.GetProperties().Where(p => p.PropertyType == typeof(decimal));
-            //        var dateTimeProperties = item.ClrType.GetProperties().Where(p => p.PropertyType == typeof(DateTimeOffset));
-            //        foreach(var prop in props)
-            //        {
-            //            modelBuilder.Entity(item.Name).Property(prop.Name).HasConversion<double>();
-            //        }
-            //        foreach (var prop in dateTimeProperties)
-            //        {
-            //            modelBuilder.Entity(item.Name).Property(prop.Name).HasConversion(new DateTimeOffsetToBinaryConverter());
-            //        }
-            //    }
-            //}
         }
     }
 }
