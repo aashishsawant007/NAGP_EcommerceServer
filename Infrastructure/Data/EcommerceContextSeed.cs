@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.IO;
 using System.Linq;
 using System.Text.Json;
@@ -26,8 +27,7 @@ namespace Infrastructure.Data
                     {
                         context.ProductBrands.Add(item);
                     }
-
-                    await context.SaveChangesAsync();
+                    await context.SaveChangesWithIdentityInsert<ProductBrand>();
                 }
                 if (!context.ProductTypes.Any())
                 {
@@ -40,7 +40,7 @@ namespace Infrastructure.Data
                         context.ProductTypes.Add(item);
                     }
 
-                    await context.SaveChangesAsync();
+                    await context.SaveChangesWithIdentityInsert<ProductType>();
                 }
                 if (!context.Products.Any())
                 {
@@ -52,8 +52,8 @@ namespace Infrastructure.Data
                     {
                         context.Products.Add(item);
                     }
-
                     await context.SaveChangesAsync();
+                    //await context.SaveChangesWithIdentityInsert<Product>();
                 }
                 if (!context.DeliveryMethods.Any())
                 {
@@ -66,7 +66,7 @@ namespace Infrastructure.Data
                         context.DeliveryMethods.Add(item);
                     }
 
-                    await context.SaveChangesAsync();
+                    await context.SaveChangesWithIdentityInsert<DeliveryMethod>();
                 }
             }
             catch (Exception ex)

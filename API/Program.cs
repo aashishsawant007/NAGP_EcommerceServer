@@ -25,13 +25,13 @@ namespace API
                 try 
                 {
                     var context = services.GetRequiredService<EcommerceContext>();
-                    await context.Database.MigrateAsync();
-                    await EcommerceContextSeed.SeedAsync(context, loggerFactory);
+                    //await context.Database.MigrateAsync();
+                    //await EcommerceContextSeed.SeedAsync(context, loggerFactory);
 
                     var userManager = services.GetRequiredService<UserManager<AppUser>>();
                     var identityContext = services.GetRequiredService<AppIdentityDbContext>();
-                    await identityContext.Database.MigrateAsync();
-                    await AppIdentityDbContextSeed.SeedUserAsync(userManager);
+                    //await identityContext.Database.MigrateAsync();
+                    //await AppIdentityDbContextSeed.SeedUserAsync(userManager);
                 }
                 catch(Exception ex)
                 {
