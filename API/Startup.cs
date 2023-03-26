@@ -31,7 +31,7 @@ namespace API
             services.AddDbContext<AppIdentityDbContext>(x => x.UseSqlServer(Environment.GetEnvironmentVariable("IdentityConnection")));
             services.AddSingleton<IConnectionMultiplexer>(c =>
             {
-                var config = ConfigurationOptions.Parse(_config.GetConnectionString("Redis"), true);
+                var config = ConfigurationOptions.Parse("127.0.0.1:6379", true);
                 return ConnectionMultiplexer.Connect(config);
             });
             services.AddAppServices();
