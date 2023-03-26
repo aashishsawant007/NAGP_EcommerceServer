@@ -7,13 +7,12 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using Core.Entities;
 using Core.Entities.OrderAggregate;
-using Microsoft.Extensions.Logging;
 
 namespace Infrastructure.Data
 {
     public class EcommerceContextSeed
     {
-        public static async Task SeedAsync(EcommerceContext context, ILoggerFactory loggerFactory)
+        public static async Task SeedAsync(EcommerceContext context)
         {
             try
             {
@@ -71,8 +70,8 @@ namespace Infrastructure.Data
             }
             catch (Exception ex)
             {
-                var logger = loggerFactory.CreateLogger<EcommerceContextSeed>();
-                logger.LogError(ex.Message);
+                //var logger = loggerFactory.CreateLogger<EcommerceContextSeed>();
+                //logger.LogError(ex.Message);
             }
         }
     }
