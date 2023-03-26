@@ -19,25 +19,25 @@ namespace API
             var host = CreateHostBuilder(args).Build();
             using(var scope = host.Services.CreateScope())
             {
-                var services = scope.ServiceProvider;
-                var loggerFactory = services.GetRequiredService<ILoggerFactory>();
+                //var services = scope.ServiceProvider;
+                //var loggerFactory = services.GetRequiredService<ILoggerFactory>();
 
-                try 
-                {
-                    //var context = services.GetRequiredService<EcommerceContext>();
-                    //await context.Database.MigrateAsync();
-                    //await EcommerceContextSeed.SeedAsync(context, loggerFactory);
+                //try 
+                //{
+                //    var context = services.GetRequiredService<EcommerceContext>();
+                //    await context.Database.MigrateAsync();
+                //    await EcommerceContextSeed.SeedAsync(context, loggerFactory);
 
-                    //var userManager = services.GetRequiredService<UserManager<AppUser>>();
-                    //var identityContext = services.GetRequiredService<AppIdentityDbContext>();
-                    //await identityContext.Database.MigrateAsync();
-                    //await AppIdentityDbContextSeed.SeedUserAsync(userManager);
-                }
-                catch(Exception ex)
-                {
-                   var logger = loggerFactory.CreateLogger<Program>();
-                   logger.LogError($"An error occurred during migration: {ex.Message}"); 
-                }
+                //    var userManager = services.GetRequiredService<UserManager<AppUser>>();
+                //    var identityContext = services.GetRequiredService<AppIdentityDbContext>();
+                //    await identityContext.Database.MigrateAsync();
+                //    await AppIdentityDbContextSeed.SeedUserAsync(userManager);
+                //}
+                //catch(Exception ex)
+                //{
+                //   var logger = loggerFactory.CreateLogger<Program>();
+                //   logger.LogError($"An error occurred during migration: {ex.Message}"); 
+                //}
             }
             host.Run();
         }
