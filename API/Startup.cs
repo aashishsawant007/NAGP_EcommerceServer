@@ -29,11 +29,11 @@ namespace API
             services.AddControllers();
             services.AddDbContext<EcommerceContext>(x => x.UseSqlServer(Environment.GetEnvironmentVariable("DefaultConnection")));
             services.AddDbContext<AppIdentityDbContext>(x => x.UseSqlServer(Environment.GetEnvironmentVariable("IdentityConnection")));
-            services.AddSingleton<IConnectionMultiplexer>(c =>
-            {
-                var config = ConfigurationOptions.Parse("127.0.0.1:6379", true);
-                return ConnectionMultiplexer.Connect(config);
-            });
+            //services.AddSingleton<IConnectionMultiplexer>(c =>
+            //{
+            //    var config = ConfigurationOptions.Parse("127.0.0.1:6379", true);
+            //    return ConnectionMultiplexer.Connect(config);
+            //});
             services.AddAppServices();
             services.AddIdentityServices(_config);
             services.AddSwaggerDoc();
