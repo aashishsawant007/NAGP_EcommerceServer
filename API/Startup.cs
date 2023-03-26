@@ -34,7 +34,7 @@ namespace API
                 return ConnectionMultiplexer.Connect(config);
             });
             services.AddAppServices();
-            //services.AddIdentityServices(_config);
+            services.AddIdentityServices(_config);
             services.AddSwaggerDoc();
             services.AddCors(options =>
             {
