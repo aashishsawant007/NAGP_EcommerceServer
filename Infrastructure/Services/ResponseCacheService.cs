@@ -16,7 +16,7 @@ namespace Infrastructure.Services
 
         public async Task CacheResponseAsync(string cacheKey, object response, TimeSpan timeToLive)
         {
-            if (response == null)
+            //if (response == null)
             {
                 return;
             }
@@ -33,14 +33,14 @@ namespace Infrastructure.Services
 
         public async Task<string> GetCachedResponseAsync(string cacheKey)
         {
-            var cachedResponse = await _database.StringGetAsync(cacheKey);
+            //var cachedResponse = await _database.StringGetAsync(cacheKey);
 
-            if (cachedResponse.IsNullOrEmpty)
-            {
+            //if (cachedResponse.IsNullOrEmpty)
+            //{
                 return null;
-            }
+            //}
 
-            return cachedResponse;
+            //return cachedResponse;
         }
     }
 }
