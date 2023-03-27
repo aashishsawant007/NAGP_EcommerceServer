@@ -10,6 +10,8 @@ using API.Middleware;
 using API.Extensions;
 using StackExchange.Redis;
 using Infrastructure.Identity;
+using System.Configuration;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace API
 {
@@ -30,8 +32,9 @@ namespace API
             services.AddDbContext<AppIdentityDbContext>(x => x.UseSqlServer("Server=IN-PG029QBM; Database=identity; User ID=CPSTest;Password=Testing01; TrustServerCertificate=true"));
             //services.AddSingleton<IConnectionMultiplexer>(c =>
             //{
-            //    var config = ConfigurationOptions.Parse(_config.GetConnectionString("Redis"), true);
-            //    return ConnectionMultiplexer.Connect(config);
+            //    //var config = ConfigurationOptions.Parse(_config.GetConnectionString("Redis"), true);
+            //    //return ConnectionMultiplexer.Connect(config);
+            //    return  ConnectionMultiplexer(ConfigurationOptions.Parse(""));
             //});
             services.AddAppServices();
             services.AddIdentityServices(_config);
